@@ -34,4 +34,14 @@ public class FlightWebServiceImpl extends SpringBeanAutowiringSupport implements
     public List<Flight> findAll() {
         return flightService.findAll();
     }
+
+    @Override
+    public Flight findById(Long id) {
+        return flightService.findById(id);
+    }
+
+    @Override
+    public String bookFlight(Long flightId) {
+        return flightService.bookFlight(flightId);
+    }
 }

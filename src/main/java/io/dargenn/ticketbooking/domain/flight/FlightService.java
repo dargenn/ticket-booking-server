@@ -11,4 +11,8 @@ public interface FlightService {
     List<Flight> findByFromAndToAndDepartureDate(City cityFrom, City cityTo, Date departure);
 
     List<Flight> findAll();
+
+    Flight findById(Long id);
+
+    String bookFlight(Long flightId);
 }

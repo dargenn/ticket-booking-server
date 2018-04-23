@@ -14,4 +14,8 @@ public interface FlightWebService {
     @WebMethod List<Flight> getFlightsByCitiesAndDates(String from, String to, Date departure);
 
     @WebMethod List<Flight> findAll();
+
+    @WebMethod Flight findById(Long id);
+
+    @WebMethod String bookFlight(Long flightId);
 }
