@@ -18,61 +18,61 @@ public class TicketBookingApplication {
         SpringApplication.run(TicketBookingApplication.class, args);
     }
 
-    @Bean
-    public ServletRegistrationBean dispatcherServlet() {
-        return new ServletRegistrationBean(new CXFServlet(), "/soap-api/*");
-    }
-
-    @Bean(name = Bus.DEFAULT_BUS_ID)
-    public SpringBus springBus() {
-        return new SpringBus();
-    }
-
-    @Bean
-    public FlightWebService flightService() {
-        return new FlightWebServiceImpl();
-    }
-
-    @Bean
-    public Endpoint flightEndpoint() {
-        EndpointImpl endpoint = new EndpointImpl(springBus(), flightService());
-        endpoint.publish("/FlightService");
-        return endpoint;
-    }
-
-    @Bean
-    public CityWebService cityService() {
-        return new CityWebServiceImpl();
-    }
-
-    @Bean
-    public Endpoint cityEndpoint() {
-        EndpointImpl endpoint = new EndpointImpl(springBus(), cityService());
-        endpoint.publish("/CityService");
-        return endpoint;
-    }
-
-    @Bean
-    public PassengerWebService passengerWebService() {
-        return new PassengerWebServiceImpl();
-    }
-
-    @Bean
-    public Endpoint passengerEndpoint() {
-        EndpointImpl endpoint = new EndpointImpl(springBus(), passengerWebService());
-        endpoint.publish("/PassengerService");
-        return endpoint;
-    }
-
-    @Bean
-    public TicketWebService ticketWebService() {
-        return new TicketWebServiceImpl();
-    }
-
-    @Bean
-    public Endpoint ticketEndpoint() {
-        EndpointImpl endpoint = new EndpointImpl(springBus(), ticketWebService());
-        endpoint.publish("/TicketService");
-        return endpoint;
-    }
+//    @Bean
+//    public ServletRegistrationBean dispatcherServlet() {
+//        return new ServletRegistrationBean(new CXFServlet(), "/soap-api/*");
+//    }
+//
+//    @Bean(name = Bus.DEFAULT_BUS_ID)
+//    public SpringBus springBus() {
+//        return new SpringBus();
+//    }
+//
+//    @Bean
+//    public FlightWebService flightService() {
+//        return new FlightWebServiceImpl();
+//    }
+//
+//    @Bean
+//    public Endpoint flightEndpoint() {
+//        EndpointImpl endpoint = new EndpointImpl(springBus(), flightService());
+//        endpoint.publish("/FlightService");
+//        return endpoint;
+//    }
+//
+//    @Bean
+//    public CityWebService cityService() {
+//        return new CityWebServiceImpl();
+//    }
+//
+//    @Bean
+//    public Endpoint cityEndpoint() {
+//        EndpointImpl endpoint = new EndpointImpl(springBus(), cityService());
+//        endpoint.publish("/CityService");
+//        return endpoint;
+//    }
+//
+//    @Bean
+//    public PassengerWebService passengerWebService() {
+//        return new PassengerWebServiceImpl();
+//    }
+//
+//    @Bean
+//    public Endpoint passengerEndpoint() {
+//        EndpointImpl endpoint = new EndpointImpl(springBus(), passengerWebService());
+//        endpoint.publish("/PassengerService");
+//        return endpoint;
+//    }
+//
+//    @Bean
+//    public TicketWebService ticketWebService() {
+//        return new TicketWebServiceImpl();
+//    }
+//
+//    @Bean
+//    public Endpoint ticketEndpoint() {
+//        EndpointImpl endpoint = new EndpointImpl(springBus(), ticketWebService());
+//        endpoint.publish("/TicketService");
+//        return endpoint;
+//    }
 }
