@@ -7,6 +7,7 @@ import io.dargenn.ticketbooking.domain.flight.FlightService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -45,7 +46,7 @@ public class FlightResource {
     @GetMapping("/byCitiesAndDate")
     public List<Flight> getFlightsByCitiesAndDates(@RequestParam(value = "from") String from,
                                                    @RequestParam(value = "to") String to,
-                                                   @RequestParam(value = "departure") Date departure) {
+                                                   @RequestParam(value = "departure") @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX") Date departure) {
         City cityFrom = cityService.findByName(from);
         City cityTo = cityService.findByName(to);
         return flightService.findByFromAndToAndDepartureDate(cityFrom, cityTo, departure);
